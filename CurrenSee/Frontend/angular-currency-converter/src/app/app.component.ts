@@ -11,7 +11,7 @@ import {Currency} from "./Currency";
 import {CurrencyServiceComponent} from "./currency-service/currency-service.component";
 import Chart from 'chart.js/auto';
 
-chart: [] = [];
+
 
 
 
@@ -21,6 +21,8 @@ chart: [] = [];
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
+
+  chart: any = [];
 
   title = 'currency-exchange';
   public isDataAvailable = false;
