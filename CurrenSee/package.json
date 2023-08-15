@@ -1,0 +1,11 @@
+{
+  "name": "currensee",
+  "version": "1.0.0",
+  "description": "A currency converter that provides real-time insight.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TEAM1 TECH10 GT",
+  "license": "ISC"
+}
