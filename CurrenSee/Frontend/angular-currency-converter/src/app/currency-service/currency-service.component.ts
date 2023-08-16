@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Currency } from 'src/app/Currency';
+import { of } from 'rxjs';
 //import { CURRENCIES } from 'src/app/mock-currency';
+import {DATA } from 'src/app/mock-chat-data';
 
 @Injectable({
   providedIn: 'root',
@@ -15,11 +17,11 @@ export class CurrencyServiceComponent{
 
   public getCurrencies(){
     return this.currencies;
-}
+  }
 
-public getLastUpdate(){
-    return this.lastUpdate;
-}
+  public getLastUpdate(){
+      return this.lastUpdate;
+  }
 
   public getCurrenciesPromise() {
     return new Promise<any>((resolve, reject) => {
@@ -37,7 +39,9 @@ public getLastUpdate(){
 
           data.forEach(currency => {
               let name = Object.keys(currency.currencies)[0]
+              // console.log(name)
               var index = this.currencies.findIndex(element => element.name==name);
+              // console.log(index);
               if (index!=-1)
                 this.currencies[index] = {...this.currencies[index], full_name: currency.currencies[name].name, symbol: currency.currencies[name].symbol}
           }
@@ -58,6 +62,11 @@ public getLastUpdate(){
       resolve(this.currencies);
     }
   })}
+
+  getHistory() {
+    const historicData = of(DATA);
+    return historicData;
+  }
 
 }
 

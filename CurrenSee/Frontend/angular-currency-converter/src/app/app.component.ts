@@ -52,18 +52,20 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.modalService.open(modal);
   }
 
+
   public selectFrom = (currency: Currency): void =>{
     this._from=currency;
     if(this.isResult)
       this.exchange();
-
+    console.log(this._from);
   }
+
 
   public selectTo = (currency: Currency): void =>{
     this.to=currency;
     if(this.isResult)
       this.exchange();
-
+    console.log(this.to)
   }
 
   changeAmountValue(){
