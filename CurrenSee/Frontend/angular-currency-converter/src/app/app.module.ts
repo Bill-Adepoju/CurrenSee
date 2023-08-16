@@ -8,12 +8,14 @@ import { CurrencySelectorComponent } from './currency-selector/currency-selector
 import { CurrencyServiceComponent } from './currency-service/currency-service.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoComponent } from './logo/logo.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
     CurrenciesComponent,
     CurrencySelectorComponent,
     LogoComponent,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Currency} from "./Currency";
 
 import {CurrencyServiceComponent} from "./currency-service/currency-service.component";
+import Chart from 'chart.js/auto';
+
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -16,6 +21,8 @@ import {CurrencyServiceComponent} from "./currency-service/currency-service.comp
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
+
+  chart: any = [];
 
   title = 'currency-exchange';
   public isDataAvailable = false;
