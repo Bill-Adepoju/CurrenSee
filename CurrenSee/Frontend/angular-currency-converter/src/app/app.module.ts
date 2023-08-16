@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { CurrencySelectorComponent } from './currency-selector/currency-selector.component';
 import { CurrencyServiceComponent } from './currency-service/currency-service.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LogoComponent } from './logo/logo.component';
 @NgModule({
   declarations: [
     AppComponent,
     CurrenciesComponent,
     CurrencySelectorComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,

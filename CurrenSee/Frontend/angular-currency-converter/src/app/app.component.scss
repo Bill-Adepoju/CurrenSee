@@ -1,13 +1,25 @@
 @import "../styles";
 
-$blue: #E04826;
+// $blue: #E04826;
+$blue: #FFFF;
 $red: #ff5858;
 $bright-blue: #E04826;
 $brighter-blue:#E04826;
 $dirty-white: #EFEFEFFF;
 $brown: #3a3636;
 
+.text-color{
+  color: white;
+}
 
+.div-color {
+  background-color: #DF4902;
+}
+
+hr {
+  border-color: #DF4902;
+  border-width: 5px;
+}
 
 .container{
   justify-content: center;
@@ -21,7 +33,10 @@ $brown: #3a3636;
   min-height: 570px;
   max-width: none;
   @include extra-small {
-    background-color: $dirty-white;
+    // rgba(26,27,55)
+    // background-color: rgba(224, 72, 38, 1);
+    // background-color: #0000;
+    background-color: rgba(26,27,55);
   }
 
   @include medium-down{
@@ -45,17 +60,21 @@ $brown: #3a3636;
 
   .result-from{
     font-weight: 800;
-    color: #3a3636;
+    // color: #3a3636;
+    color: #FFFF;
   }
   .result-to{
     font-size: 2rem;
     font-weight: 1000;
     margin-top: 5px;
     margin-bottom:15px;
+    color: #FFFF;
   }
   .result-info{
     white-space: pre;
     font-weight: 500;
+    color: #FFFF;
+    font-style: italic;
   }
 }
 
@@ -159,6 +178,7 @@ align-items: center;
   display: flex;
   align-items: center;
   overflow: hidden;
+  
   .prefix {
     font-weight: 300;
     color: #999;
@@ -171,10 +191,11 @@ align-items: center;
     outline: none;
     padding: 0.5rem;
     font-weight: 600;
+    
   }
   &:focus-within {
 
-      background-color: white;
+      background-color: #DF4902;
       outline: 2px solid rgb(153, 153, 245);
 
   }
@@ -195,8 +216,9 @@ align-items: center;
     width: 160px;
     height: 50px;
     border-radius: 5px;
-    color: white;
-    font-weight:500;
+    // color: white;
+    color: #E04826;
+    font-weight:700;
     background-color: $blue;
 
 
@@ -281,7 +303,8 @@ align-items: center;
   right: 15px;
   bottom: 10px;
   font-weight: 400;
-  color: #3a3636;
+  // color: #3a3636;
+  color: #FFFF;
 
 }
 .madeBy{

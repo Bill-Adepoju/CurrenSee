@@ -30,6 +30,7 @@ public getLastUpdate(){
           var value = data.rates[key];
           let currency:Currency = {rate: value, full_name: '', name: key, symbol: ''};
           this.currencies.push(currency);
+          console.log(this.currencies);
         }
           this.lastUpdate = data.time_last_update_utc;
         this.http.get<any>('https://restcountries.com/v3.1/all?fields=currencies').subscribe(data => {
