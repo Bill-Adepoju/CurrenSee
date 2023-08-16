@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Ncp20HU1DO08+lUaewEp5hyrgU0OMR9QyLDNerus8qA=",
+  "Source": "CurrencyExchangeRate",
+  "BasePath": "_content/CurrencyExchangeRate",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
