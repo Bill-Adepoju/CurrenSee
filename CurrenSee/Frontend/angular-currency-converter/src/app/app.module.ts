@@ -9,6 +9,7 @@ import { CurrencyServiceComponent } from './currency-service/currency-service.co
 import { HttpClientModule } from '@angular/common/http';
 import { LogoComponent } from './logo/logo.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { DateRangePickerComponent } from './date-range-picker/date-range-picker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     CurrencySelectorComponent,
     LogoComponent,
     LineChartComponent,
+    DateRangePickerComponent,
   ],
   imports: [
     BrowserModule,
