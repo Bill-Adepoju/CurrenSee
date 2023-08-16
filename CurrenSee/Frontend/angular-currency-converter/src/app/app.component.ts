@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Currency} from "./Currency";
 
 import {CurrencyServiceComponent} from "./currency-service/currency-service.component";
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto';
 
 
 
