@@ -58,6 +58,10 @@
         <div class="result-info">
           Rate: {{resultInfo}}
         </div>
+        <div id="line-chart">
+    
+          <canvas  id="MyChart" >{{ chart }}</canvas>
+        </div>
       </div>
       <!-- <app-line-chart></app-line-chart> -->
     </div>
@@ -75,10 +79,13 @@
     <!-- <div>
       <app-date-range-picker></app-date-range-picker>
     </div> -->
-    <div id="line-chart">
+    <!-- <div id="line-chart">
       <app-line-chart></app-line-chart>
-    </div>
-
+    </div> -->
+    <!-- <div id="line-chart">
+      <app-line-chart [inputDataFrom]="_from" [inputDataTo]="to"></app-line-chart>
+      <canvas  id="MyChart" >{{ chart }}</canvas>
+    </div> -->
   </div>
 
 </div>

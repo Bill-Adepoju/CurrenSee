@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Currency } from 'src/app/Currency';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 //import { CURRENCIES } from 'src/app/mock-currency';
 import {DATA } from 'src/app/mock-chat-data';
 
@@ -12,6 +12,7 @@ export class CurrencyServiceComponent{
 
   private currencies:Currency[] = [];
   private lastUpdate;
+  // private apiUrl = 'http://tomisin-001-site1.dtempurl.com/api/v1/exchange/history';
   constructor(private http: HttpClient) {
   }
 
@@ -68,6 +69,9 @@ export class CurrencyServiceComponent{
     return historicData;
   }
 
+  getHistoryData (url: string): Observable<any> {
+    return this.http.get(url);
+  }
 }
 
 
