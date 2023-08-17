@@ -1,5 +1,12 @@
 @import "../styles";
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 // $blue: #E04826;
 $blue: #FFFF;
 $red: #ff5858;
@@ -10,6 +17,7 @@ $brown: #3a3636;
 
 .text-color{
   color: white;
+  text-align: center;
 }
 
 .div-color {
@@ -23,7 +31,7 @@ hr {
 
 
 #line-chart {
-  background-color: #d2d2d2;
+  background-color: #181920;
   margin-top: 30px;
   height: 130px;
   border-radius: 5px;
@@ -44,7 +52,7 @@ hr {
     // rgba(26,27,55)
     // background-color: rgba(224, 72, 38, 1);
     // background-color: #0000;
-    background-color: rgba(26,27,55);
+    background-color: #181920;
   }
 
   @include medium-down{
@@ -86,6 +94,30 @@ hr {
   }
 }
 
+.header-div{
+  display: flex;
+  margin-top: 0;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  // gap: 3rem;
+}
+
+.header-text1{
+  font-size: 1.5rem;
+}
+
+.amount-label,.from-label,.to-label{
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.input-field{
+  border-radius: 10px;
+  background-color: #d14a21;
+}
+
+
 .card {
   position: absolute;
   top: 50%;
@@ -96,7 +128,7 @@ align-items: center;
   padding: 20px;
 
   
-  background-color: rgba(255, 255, 255, 0.11);
+  background-color: #181920;
   // background-color: $dirty-white;
   width: 300px;
   height: auto;
