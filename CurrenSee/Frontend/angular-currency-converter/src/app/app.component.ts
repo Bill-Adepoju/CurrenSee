@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this._from=currency;
     if(this.isResult)
       this.exchange();
-    console.log(this._from);
+    // console.log(this._from);
   }
 
 
@@ -71,7 +71,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.to=currency;
     if(this.isResult)
       this.exchange();
-    console.log(this.to)
+    // console.log(this.to)
   }
 
   changeAmountValue(){
@@ -159,8 +159,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     startDate.setDate(currentDate.getDate() - 5);
     const startDateFormatted = startDate.toISOString().split('T')[0]; // Format as "YYYY-MM-DD"
 
-      console.log(typeof(startDateFormatted));
-      console.log(endDate);
+      // console.log(typeof(startDateFormatted));
+      // console.log(endDate);
       // console.log("Starting test here");
       // console.log("From:" + this.inputDataFrom.name);
       // console.log("To:" + this.inputDataTo.name);
@@ -171,20 +171,20 @@ export class AppComponent implements OnInit, AfterViewInit {
     //   Source: 'USD',
     //   Destination: 'NGN',
     // };
-    console.log(sourceCur.name);
-    console.log(typeof(sourceCur.name));
-    console.log(destinationCur.name);
+    // console.log(sourceCur.name);
+    // console.log(typeof(sourceCur.name));
+    // console.log(destinationCur.name);
     var source: string = sourceCur.name;//'USD';
     var dest: string = destinationCur.name; //'NGN';
     // const apiUrl = `http://tomisin-001-site1.dtempurl.com/api/v1/exchange/history?StartDate=${startDateFormatted}&EndDate=${endDate}&Source=${sourceCur.name}&Destination=${destinationCur.name}`;
     const apiUrl = `http://tomisin-001-site1.dtempurl.com/api/v1/exchange/history?StartDate=${startDateFormatted}&EndDate=${endDate}&Source=${source}&Destination=${dest}`;
-    console.log(apiUrl);
+    // console.log(apiUrl);
 
     this.service.getHistoryData(apiUrl).subscribe(
       response => {
-        console.log('API Response:', response);
+        // console.log('API Response:', response);
         this.response = response;
-        console.log(this.response);
+        // console.log(this.response);
         this.extractData(response);
       },
       error => {
@@ -197,20 +197,31 @@ export class AppComponent implements OnInit, AfterViewInit {
   //placing data consumed from endpoint into uniform date and rate Arrays
   extractData(response: any): void {
     if (response.data && response.data.rates) {
+      // console.log('Extracting data right now!!!')
+      // console.log(this.response);
+      // console.log((this.response['data']['rates'].values()))[0]
+      const data = this.response;
+      // console.log(data);
+
+      var currencyCode = Object.keys(data.data.rates[Object.keys(data.data.rates)[0]])[0];
+      // console.log(currencyCode);
+      // console.log(typeof(currencyCode));
       // wipe existing array before refill
       this.dateArray.length = 0;
       this.rateArray.length = 0;
       for (const date in response.data.rates) {
+        // console.log(date);
+        // console.log(response.data.rates[date][currencyCode])
         if (response.data.rates.hasOwnProperty(date)) {
           this.dateArray.push(date);
-          this.rateArray.push(response.data.rates[date].NGN);
+          this.rateArray.push(response.data.rates[date][currencyCode]);
         }
 
         
       }
     }
-    console.log(this.dateArray);
-    console.log(this.rateArray);
+    // console.log(this.dateArray);
+    // console.log(this.rateArray);
 
     this.createChart(this.dateArray, this.rateArray);
   }
