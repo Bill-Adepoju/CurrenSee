@@ -220,8 +220,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         
       }
     }
-    // console.log(this.dateArray);
-    // console.log(this.rateArray);
+    console.log(this.dateArray);
+    console.log(this.rateArray);
 
     this.createChart(this.dateArray, this.rateArray);
   }
