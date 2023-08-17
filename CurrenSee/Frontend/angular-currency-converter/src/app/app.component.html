@@ -2,11 +2,19 @@
 <div class="container">
   <app-logo></app-logo>
   <div class="card" >
-    <h1 class="text-color">Currency Converter</h1>
+    <div class="header-div">
+      <div><img ng-src ="https://drive.google.com/file/d/1n248iq4PaBkfArpldrhd78GXu2mm7FZa/view?usp=drive_link" alt="user icon"></div>
+      <div>
+        <h1 class="text-color header-text1">Currency Converter</h1>
+      </div>
+      <div><img ng-src="" alt="hamburger"></div>
+      
+    </div>
+    
     <div *ngIf="isDataAvailable">
     <form name="form-exchange" (ngSubmit)="onSubmit()">
     <div class="form-currency" #formExchange (window:resize)="windowResize()">
-    <label class="text-color">Amount</label>
+    <label class="text-color amount-label">Enter Amount</label>
 
       <div >
       <div class="div-color input-amount input-field">
@@ -15,7 +23,7 @@
       </div>
 
       </div>
-    <label class="text-color">From</label>
+    <label class="text-color from-label">From</label>
 
 
     <app-currency-selector #from [selectorId]="'from'" [changeCurrency]="selectFrom"></app-currency-selector>
@@ -26,10 +34,10 @@
           <i class="bi bi-arrow-left-right"></i>
         </button>
 
-    <label class="text-color">To</label>
+    <label class="text-color to-label">To</label>
 
 
-      <app-currency-selector #to [selectorId]="'to'" [changeCurrency]="selectTo"></app-currency-selector>
+      <app-currency-selector  #to [selectorId]="'to'" [changeCurrency]="selectTo"></app-currency-selector>
     </div>
 
     <div class="submit-btn" [style.width.px]="formExchange.offsetWidth" #submitBtn *ngIf="!isResult">
