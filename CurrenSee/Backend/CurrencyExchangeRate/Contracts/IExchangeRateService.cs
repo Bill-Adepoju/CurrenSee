@@ -6,7 +6,7 @@ namespace CurrencyExchangeRate.Contracts
     public interface IExchangeRateService
     {
         Task<SuccessResponse<ExchangeRateResponse>> GetExchangeConversion(Dtos.ExchangeRateConverterDto model);
-        Task<SuccessResponse<CurrencySymbolsResponse>> GetCurrencies();
+        Task<SuccessResponse<List<CurrencySymbolsResponse>>> GetCurrencies();
 
         SuccessResponse<HistoryExchangeRateData> HistoricalData(HistoricalData model);
     }

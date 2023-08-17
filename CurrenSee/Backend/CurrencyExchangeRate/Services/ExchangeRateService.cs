@@ -22,7 +22,8 @@ namespace CurrencyExchangeRate.Services
         {
             try
             {
-                string url_str = $"https://api.exchangerate.host/convert?from={model.SourceCurrency}&to={model.DestinationCurrency}&amount={model.SourceUnit}";
+                string apiKey = "b06827533898571e3cfe2ac4b470071a";
+                string url_str = $"https://api.exchangerate.host/convert?access_key={apiKey}&from={model.SourceCurrency}&to={model.DestinationCurrency}&amount={model.SourceUnit}";
                 HttpResponseMessage response = await _httpClient.GetAsync(url_str);
 
 
@@ -43,24 +44,23 @@ namespace CurrencyExchangeRate.Services
             catch (Exception ex)
             {
                 throw new RestException(HttpStatusCode.InternalServerError, ex.Message);
-                //Console.WriteLine("HTTP request failed with status code: " + response.StatusCode);
             }
         }
 
 
-        public async Task<SuccessResponse<CurrencySymbolsResponse>> GetCurrencies()
+        public async Task<SuccessResponse<List<CurrencySymbolsResponse>>> GetCurrencies()
         {
             try
             {
-                string url_str = $"https://api.exchangerate.host/symbols";
+                string url_str = $"https://restcountries.com/v3.1/all?fields=currencies";
                 HttpResponseMessage response = await _httpClient.GetAsync(url_str);
 
 
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    var responseContent = JsonConvert.DeserializeObject<CurrencySymbolsResponse>(content);
-                    return new SuccessResponse<CurrencySymbolsResponse>
+                    var responseContent = JsonConvert.DeserializeObject<List<CurrencySymbolsResponse>>(content);
+                    return new SuccessResponse<List<CurrencySymbolsResponse>>
                     {
                         Data = responseContent,
                         Message = "Currencies successsfully gotten",
@@ -73,7 +73,6 @@ namespace CurrencyExchangeRate.Services
             catch (Exception ex)
             {
                 throw new RestException(HttpStatusCode.InternalServerError, ex.Message);
-                //Console.WriteLine("HTTP request failed with status code: " + response.StatusCodec
             }
         }
 
@@ -81,27 +80,9 @@ namespace CurrencyExchangeRate.Services
         {
             try
             {
-                //string apiKey = "wvLt0NtQ3GOJsyjKpIPAr0rlF0U2QVfu";
-                //string url_str = $"https://api.apilayer.com/exchangerates_data/timeseries?start_date={model.StartDate}&end_date={model.EndDate}";
-                //_httpClient.DefaultRequestHeaders.Add("apikey", apiKey);
-                //HttpResponseMessage response = await _httpClient.GetAsync(url_str);
-
-
-                //if (response.IsSuccessStatusCode)
-                //{
-                //    string content = await response.Content.ReadAsStringAsync();
-                //    var responseContent = JsonConvert.DeserializeObject<HistoryExchangeRateData>(content);
-                //    return new SuccessResponse<HistoryExchangeRateData>
-                //    {
-                //        Data = responseContent,
-                //        Message = "Historical data successsfully gotten",
-                //        Success = true,
-                //    };
-                //}
-                //return null;
-                if (model is not null)
+                if (model.StartDate  is not null && model.EndDate is not null)
                 {
-                    var client = new RestClient($"https://api.apilayer.com/exchangerates_data/timeseries?start_date={model.StartDate}&end_date={model.EndDate}&base={model.Base}&symbols={model.Symbol}");
+                    var client = new RestClient($"https://api.apilayer.com/exchangerates_data/timeseries?start_date={model.StartDate}&end_date={model.EndDate}&base={model.Source}&symbols={model.Destination}");
                     client.Timeout = -1;
 
                     var request = new RestRequest(Method.GET);
@@ -115,7 +96,6 @@ namespace CurrencyExchangeRate.Services
                         Message = "Historical data successsfully gotten",
                         Success = true,
                     };
-                        //Console.WriteLine(response.Content);
                 }
                 throw new RestException(HttpStatusCode.BadRequest, "Start-Date and End-Date has to be entered");
 
@@ -123,7 +103,6 @@ namespace CurrencyExchangeRate.Services
             catch (Exception ex)
             {
                 throw new RestException(HttpStatusCode.InternalServerError, ex.Message);
-                //Console.WriteLine("HTTP request failed with status code: " + response.StatusCode);
             }
         }
     }

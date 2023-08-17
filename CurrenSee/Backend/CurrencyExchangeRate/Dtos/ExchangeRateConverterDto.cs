@@ -20,6 +20,9 @@ namespace CurrencyExchangeRate.Dtos
 
         [JsonProperty("info")]
         public Info Info { get; set; }
+        [JsonProperty("result")]
+
+        public double Result { get; set; }
     }
 
     public class QueryInfo
@@ -37,21 +40,22 @@ namespace CurrencyExchangeRate.Dtos
         public long Timestamp { get; set; }
 
         [JsonProperty("rate")]
-        public double Rate { get; set; }
+        public string Rate { get; set; }
 
-        [JsonProperty("result")]
-        public double Result { get; set; }
+        
     }
 
     public class CurrencyInfo
     {
-        public string Description { get; set; }
+        public string Name { get; set; }
+
+        [JsonProperty("symbol")]
         public string Code { get; set; }
     }
 
     public class CurrencySymbolsResponse
     {
-        public Dictionary<string, CurrencyInfo> Symbols { get; set; }
+        public Dictionary<string, CurrencyInfo> Currencies { get; set; }
     }
 
     public class HistoricalData
@@ -59,9 +63,9 @@ namespace CurrencyExchangeRate.Dtos
         public string StartDate { get; set; }
         public string EndDate { get; set; }
 
-        public string Base { get; set; }
+        public string Source { get; set; }
 
-        public string Symbol { get; set; }
+        public string Destination { get; set; }
     }
 
     public class HistoryExchangeRateData

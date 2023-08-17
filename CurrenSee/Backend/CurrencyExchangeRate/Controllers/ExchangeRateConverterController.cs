@@ -31,7 +31,7 @@ namespace CurrencyExchangeRate.Controllers
 
         [AllowAnonymous]
         [HttpGet("currencies")]
-        [ProducesResponseType(typeof(SuccessResponse<CurrencySymbolsResponse>), 200)]
+        [ProducesResponseType(typeof(SuccessResponse<List<CurrencySymbolsResponse>>), 200)]
         public async Task<IActionResult> GetCurrencies()
         {
             var response = await _exchangeRateService.GetCurrencies();
