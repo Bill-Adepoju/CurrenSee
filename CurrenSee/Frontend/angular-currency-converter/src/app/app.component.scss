@@ -24,10 +24,10 @@ $brown: #3a3636;
   background-color: #DF4902;
 }
 
-hr {
-  border-color: #DF4902;
-  border-width: 5px;
-}
+// hr {
+//   border-color: #DF4902;
+//   border-width: 5px;
+// }
 
 
 #line-chart {
@@ -60,6 +60,33 @@ hr {
   }
 }
 
+.user-profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.gtcube {
+  height: 3.5rem;
+  width: 4rem;
+}
+.gtcube-img{
+  width: 100%;
+}
+
+.user-icon{
+  width:  100%;
+  border: 1px solid #202127;
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+
+.icon-div{
+  height: 3.5rem;
+  width: 4rem;
+  
+}
+
 .result-currency{
   margin-block: 20px;
   width: 100%;
@@ -85,6 +112,8 @@ hr {
     margin-top: 5px;
     margin-bottom:15px;
     color: #FFFF;
+    border-top: 1px solid #d14a21;
+    border-bottom:1px solid #d14a21 ;
   }
   .result-info{
     white-space: pre;
@@ -96,7 +125,7 @@ hr {
 
 .header-div{
   display: flex;
-  margin-top: 0;
+  margin: 0 0 2rem;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -242,9 +271,10 @@ align-items: center;
 }
 
 .submit-btn {
+  display: flex;
 
   text-align: right;
-  justify-content: end;
+  justify-content: center;
 
   margin-top: 20px;
   @include medium-down {
@@ -267,6 +297,7 @@ align-items: center;
 
     &:hover{
       background-color: $bright-blue;
+      color: white;
       transition: 0.5s;
 
       outline: 2px solid rgb(153, 153, 245);
@@ -281,6 +312,15 @@ align-items: center;
 
 
 }
+.result-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0 0;
+
+}
+
 
 .form-currency{
   display: grid;

@@ -3,11 +3,15 @@
   <app-logo></app-logo>
   <div class="card" >
     <div class="header-div">
-      <div><img ng-src ="https://drive.google.com/file/d/1n248iq4PaBkfArpldrhd78GXu2mm7FZa/view?usp=drive_link" alt="user icon"></div>
+      <div class="user-profile">
+        <div class="icon-div"><img class="user-icon" src ="assets/user-icon.png" alt="user icon"></div>
+        
+        <p>Hello, User</p>
+      </div>
       <div>
         <h1 class="text-color header-text1">Currency Converter</h1>
       </div>
-      <div><img ng-src="" alt="hamburger"></div>
+      <div class="gtcube"><img class="gtcube-img" src ="assets/gtbcube.png" alt="user icon"></div>
       
     </div>
     
@@ -47,17 +51,21 @@
     </form>
     <!-- <app-date-range-picker></app-date-range-picker> -->
       <div class="result-currency" *ngIf="isResult">
-        <div class="result-from">
-          {{resultFrom}}
+        <div class="result-div">
+          <div class="result-from">
+            {{resultFrom}}
+          </div>
+         
+          <div class="result-to">
+            {{resultTo}}
+          </div>
+          <div class="result-info">
+            Rate: {{resultInfo}}
+          </div>
+          
         </div>
-        <hr >
-        <div class="result-to">
-          {{resultTo}}
-        </div>
-        <hr >
-        <div class="result-info">
-          Rate: {{resultInfo}}
-        </div>
+        
+        
         <div id="line-chart">
     
           <canvas  id="MyChart" >{{ chart }}</canvas>

@@ -197,6 +197,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   //placing data consumed from endpoint into uniform date and rate Arrays
   extractData(response: any): void {
     if (response.data && response.data.rates) {
+      console.log(this.response['data']['rates'].values())[0]
       // wipe existing array before refill
       this.dateArray.length = 0;
       this.rateArray.length = 0;
