@@ -12,6 +12,7 @@ import {CurrencyServiceComponent} from "./currency-service/currency-service.comp
 // import Chart from 'chart.js/auto';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { Chart } from 'chart.js/auto';
+import { Colors } from 'chart.js';
 
 
 
@@ -220,8 +221,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         
       }
     }
-    console.log(this.dateArray);
-    console.log(this.rateArray);
+    // console.log(this.dateArray);
+    // console.log(this.rateArray);
 
     this.createChart(this.dateArray, this.rateArray);
   }
@@ -242,19 +243,23 @@ export class AppComponent implements OnInit, AfterViewInit {
           {
             label: "Rate",
             data: YaxisData,
-            backgroundColor: '#DF4902',
+            backgroundColor: '#d14a21',
             borderColor: '#d14a21 ',
-            pointBorderWidth: 10
+            pointBorderWidth: 10,
+            
           }  
         ]
       },
       options: {
-        aspectRatio:10.5,
+        aspectRatio:4.5,
         responsive:true,
         maintainAspectRatio: false,
         scales: {
+          x:{
+           
+          },
             y:{
-              beginAtZero:true,
+              // beginAtZero:true,
             }
         }
         
