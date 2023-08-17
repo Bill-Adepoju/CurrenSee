@@ -31,6 +31,9 @@ $brown: #3a3636;
 
 
 #line-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #181920;
   margin-top: 30px;
   height: 130px;
@@ -64,7 +67,7 @@ $brown: #3a3636;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.2rem;
 }
 .gtcube {
   height: 3.5rem;
@@ -125,15 +128,28 @@ $brown: #3a3636;
 
 .header-div{
   display: flex;
-  margin: 0 0 2rem;
+  // margin: 0 0 2rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content:space-between;
   width: 100%;
-  // gap: 3rem;
+  padding: 0;
+ 
+}
+.user-profile,.header-text-div,.gtcube{
+  margin: 0;
+  padding: 0;
+  // width: 20%;
 }
 
 .header-text1{
+  
   font-size: 1.5rem;
+ padding-top: 4rem;
+}
+.user-name{
+  padding-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 200;
 }
 
 .amount-label,.from-label,.to-label{
@@ -144,6 +160,12 @@ $brown: #3a3636;
 .input-field{
   border-radius: 10px;
   background-color: #d14a21;
+}
+
+#MyChart{
+  border: 3px solid red;
+  width: 20rem;
+  height: 15rem;
 }
 
 

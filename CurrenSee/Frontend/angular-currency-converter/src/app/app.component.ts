@@ -156,7 +156,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     
     // Calculate StartDate as 5 days before EndDate
     const startDate = new Date(currentDate);
-    startDate.setDate(currentDate.getDate() - 5);
+    startDate.setDate(currentDate.getDate() - 10);
     const startDateFormatted = startDate.toISOString().split('T')[0]; // Format as "YYYY-MM-DD"
 
       // console.log(typeof(startDateFormatted));
@@ -240,14 +240,24 @@ export class AppComponent implements OnInit, AfterViewInit {
         labels: XaxisData, 
 	       datasets: [
           {
-            label: "Rates",
+            label: "Rate",
             data: YaxisData,
-            backgroundColor: '#DF4902'
+            backgroundColor: '#DF4902',
+            borderColor: '#d14a21 ',
+            pointBorderWidth: 10
           }  
         ]
       },
       options: {
-        aspectRatio:2.5
+        aspectRatio:10.5,
+        responsive:true,
+        maintainAspectRatio: false,
+        scales: {
+            y:{
+              beginAtZero:true,
+            }
+        }
+        
       }
       
     });
